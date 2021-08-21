@@ -1,0 +1,14 @@
+clear all;
+close all;
+N=10000;
+
+xs = -4:(8/N):4;
+[A,B]=meshgrid(xs,xs);
+F = 20+(A.^2-10*cos(A.*2*pi))+(B.^2-10*cos(B.*2*pi));
+surfc(xs, xs, F);
+
+X = -4 +(4+4)*rand(N, 1);
+Y = -4 +(4+4)*rand(N, 1);
+F = 20+(X.^2-10*cos(X.*2*pi))+(Y.^2-10*cos(Y.*2*pi));
+Arr = [X,Y];
+GLmin = Arr(find(F==min(F)),:);
